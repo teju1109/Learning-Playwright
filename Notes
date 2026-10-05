@@ -1,0 +1,127 @@
+Playwright is a browser automation tool that allows your program to control a web browser automatically.
+--> So instead of a human controlling the browser, your program controls it.
+--> Playwright communicates with the browser and tells it what to do.
+Playwright
+    │
+    ├── Launch browser
+    │
+    ├── Open page
+    │
+    ├── Navigate to website
+    │
+    ├── Find button
+    │
+    ├── Click button
+    │
+    └── Verify result
+--> Playwright is the tool controlling the browser.
+
+Playwright does not automatically click buttons, Playwright can perform two major types of work:
+A. Actions : Tell the website to do something.
+--> Click
+--> Type
+--> Select
+--> Hover
+--> Upload
+--> Scroll
+--> Press keyboard key
+B. Verification : Check what happened.
+--> Is the dashboard visible?
+--> Did the URL change?
+--> Is the Login button still visible?
+--> Does the page contain "Welcome"?
+--> Is the button disabled?
+┌──────────────────┐
+│   Your Program   │
+└────────┬─────────┘
+         ↓
+┌──────────────────┐
+│    Playwright    │
+└────────┬─────────┘
+         ↓
+┌──────────────────┐
+│     Browser      │
+└────────┬─────────┘
+         ↓
+┌──────────────────┐
+│     Website      │
+└──────────────────┘
+
+Browser automation --> A program controls a browser.
+Browser testing --> A program controls a browser and verifies that the application behaves correctly.
+
+Browser Context : A separate, isolated browsing environment/session inside the browser.
+Browser
+   │
+   ├── Browser Context 1
+   │       │
+   │       ├── Page 1
+   │       └── Page 2
+   │
+   └── Browser Context 2
+           │
+           └── Page 1
+--> One Browser can have multiple Contexts
+┌──────────────────────┐
+│       Browser        │
+│                      │
+│  ┌────────────────┐  │
+│  │ Browser Context│  │
+│  │                │  │
+│  │ ┌────────────┐ │  │
+│  │ │   Page     │ │  │
+│  │ │            │ │  │
+│  │ │  Website   │ │  │
+│  │ │     ↓      │ │  │
+│  │ │  Locator   │ │  │
+│  │ │     ↓      │ │  │
+│  │ │   Action   │ │  │
+│  │ └────────────┘ │  │
+│  └────────────────┘  │
+└──────────────────────┘
+Browser           → starts the browser.
+Browser Context   → manages an isolated login/session environment.
+Page              → represents the website/tab.
+Locator           → finds the username field, password field, login button, etc.
+Action            → fills the username, fills the password, clicks Login.
+Assertion         → verifies that login succeeded.
+
+Playwright API :
+Playwright API is the collection of commands and functions that Playwright provides so that your program can control a browser.
+--> Playwright gives your program commands such as:
+1. Launch browser
+2. Create context
+3. Create page
+4. Open URL
+5. Click
+6. Fill
+7. Press
+8. Screenshot
+9. Check
+
+Playwright architecture :
+                    YOUR CODE
+                       ↓
+                PLAYWRIGHT API
+                       ↓
+                   PLAYWRIGHT
+                       ↓
+          ┌────────────┼────────────┐
+          ↓            ↓            ↓
+      Chromium      Firefox       WebKit
+          ↓
+    Browser Context
+          ↓
+         Page
+          ↓
+       Locator
+          ↓
+        Action
+          ↓
+       Website
+          ↓
+       Result
+          ↓
+      Assertion
+
+Lesson 5 pending
